@@ -46,7 +46,6 @@ This endpoint allows you to search for lyrics of a specific track using the Spot
 
 ```
 GET htts://localhost:3000/getLyricsByName/{artistName}/{trackName}?remix={true/false}
-
 ```
 
 This endpoint allows you to search for lyrics of a specific track using the Artist Name and Track Name.
