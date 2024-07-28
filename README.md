@@ -1,10 +1,8 @@
-# Lyrix API
+# Lyrics Fetcher
 
-A node.js API that extract synced lyrics from Musixmatch through Spotify.
-Check the source code on how it works, it is well commented/document lol.
-Also do not hestitate to ask me any questions
+Microservice for hyperspace music that fetches synced lyrics to any song, via the spotify API.
 
-##Guide
+## Guide
 
 Token Url
 
@@ -12,18 +10,34 @@ Token Url
 https://open.spotify.com/get_access_token?reason=transport&productType=web_player
 ```
 
-Lyrics Url
+Lyrics Base Url
 
 ```
 https://spclient.wg.spotify.com/color-lyrics/v2/track/
 ```
+
+Search Token
+
+```
+https://accounts.spotify.com/api/token
+```
+
+Search URL
+
+```
+https://api.spotify.com/v1/search
+```
+
+Generate a new app under Spotify's developer dashboard and get the client id and secret key.
+
+To get your spotify cookie, open spotify web and extract the `sp_dc` cookie.
 
 ## Endpoints
 
 #### Search lyrics by Track ID
 
 ```
-GET https://lyrix.vercel.app/getLyrics/{trackId}
+GET http://localhost:3000/getLyrics/{trackId}
 ```
 
 This endpoint allows you to search for lyrics of a specific track using the Spotify Track ID.
@@ -31,7 +45,7 @@ This endpoint allows you to search for lyrics of a specific track using the Spot
 #### Search lyrics by Artist Name and Track Name
 
 ```
-GET https://lyrix.vercel.app/getLyricsByName/{artistName}/{trackName}?remix={true/false}
+GET htts://localhost:3000/getLyricsByName/{artistName}/{trackName}?remix={true/false}
 
 ```
 
@@ -42,18 +56,4 @@ Example:
 
 ```
 http://localhost:3000/getLyricsByName/Asake/Sungba?remix=true
-```
-
-This will return lyrics of the official remix of the song "Sungba" by Asake.
-Example:
-
-```
-http://localhost:3000/getLyricsByName/Asake/Sungba
-```
-
-This will return lyrics of the original version of the song "Sungbaa" by Asake.
-Example:
-
-```
-http://localhost:3000/getLyricsByName/Asake/Sungba
 ```
